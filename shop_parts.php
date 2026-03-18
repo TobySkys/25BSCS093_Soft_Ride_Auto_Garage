@@ -1,13 +1,5 @@
 <?php
 session_start();
-require 'config/connect.php';
-
-// Handle Logout
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header("Location: index.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +9,9 @@ if (isset($_GET['logout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/icons/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Home page</title>
+    <title>Shop Parts</title>
 </head>
-<body class="home-page">
+<body>
     <header>
         
         <div class="logo">
@@ -51,17 +43,19 @@ if (isset($_GET['logout'])) {
         </nav>
     </header>
     <main>
-        <p class="welcome">
-            <?php if(isset($_SESSION['username'])): ?>
-                <h3>Welcome to Our Auto Garage 🔧 <?php echo htmlspecialchars($_SESSION['username']); ?></h3>
-                <?php else: ?>
-                    <h1 style="color:#ffff; -webkit-text-stroke:3px #000; text-stroke:3px #000; font-size:40px; font-weight:900; paint-order:stroke fill; text-shadow:1px 1px 1px 3px rgba(0,0,0,0.6);">Soft-Ride Auto Garage and Sparts!🔧</h1> 
-                    <h3 style="color:#fff; -webkit-text-stroke:2px #000; text-stroke:2px #000; font-size:20px; font-weight:800; paint-order:stroke fill; text-shadow:1px 1px 1px 3px rgba(0,0,0,0.6);">" Where Smooth Rides Find a Home. "</h3>
-                <?php endif; ?>
-                </p>
+        <div class="admin-panel">
+            <h3><i class="fa-solid fa-plus">Add new Part</i></h3>
+            <form action="" method="POST">
+                <input type="text" name="name" placeholder="Part Name" required>
+                <input type="text" name="category" placeholder="Category" required>
+                <input type="number" name="price" placeholder="Price (UGX)" required>
+                <input type="number" name="quantity" placeholder="Quantity/Strock" required>
+                <textarea name="description" placeholder="Description" rows="3"></textarea>
+                <button type="submit" name="add_part">Add Part</button>
+            </form>
+        </div> 
     </main>
     <footer>
-        
     <div class="container">
   <div class="footer-brand">
     <a class="brand-name" href="index.php">SOFT-RIDE-<span>AUTO</span></a>
@@ -93,7 +87,7 @@ if (isset($_GET['logout'])) {
       <li><a href="#">123 Main Street</a></li>
       <li><a href="#">Your City, ST 00000</a></li>
       <li><a href="tel:(+256) 718826545">(+256) 7188 26545</a></li>
-      <li><a href="#">Mon–Fri: 8am–6pm</a></li>
+      <li><a href="#">Mon-Fri: 8am-6pm</a></li>
       <li><a href="#">After-hours drop-off</a></li>
     </ul>
   </div>
@@ -106,6 +100,5 @@ if (isset($_GET['logout'])) {
 </div>
 <div class="copyright">© 2026 Soft-Ride-Auto Auto. All Rights Reserved.</div>
 </footer>
-    <script src="assets/script.js"></script>
 </body>
 </html>

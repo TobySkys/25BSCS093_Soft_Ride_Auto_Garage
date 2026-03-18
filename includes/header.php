@@ -1,5 +1,4 @@
 
-    <header>
         <div class="logo">
             <img src="assets/images/company.jpeg" alt="" width="100%" height="100%">
         </div>
@@ -13,8 +12,8 @@
                 <!--Post-Signup-->
                 <li><a href="admin_dashboard.php">Dashboard</a></li>
                 <li><a href="services.php">services</a></li>
-                <li><a href="#">shop parts</a></li>
-                <li><a href="#">boookings</a></li>
+                <li><a href="shop_parts.php">shop parts</a></li>
+                <li><a href="bookings.php">boookings</a></li>
                 <li><a href="profile.php">profile</a></li>
                 <button class="action-btn"><a href="index.php?logout=true">LogOut</a></button>
                 <?php else: ?>
@@ -27,4 +26,3 @@
                 <?php endif; ?>
             </ul>
         </nav>
-    </header>

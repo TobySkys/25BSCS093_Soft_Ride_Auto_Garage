@@ -5,14 +5,20 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #ffffff;
+    background-color: #0d0b1a;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main{
+    flex: 1;
 }
 .home-page main{
      background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)) ,url(images/pro-mechanic.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 .about-me{
     display: flex;
@@ -170,6 +176,7 @@ p{
     color: #6e40c9;
     font-size: 30px;
 }
+/*header.php*/
 header{
     width: 100%;
     height: 100px;
@@ -193,20 +200,19 @@ nav ul{
     justify-content: space-between;
     align-items: center;
     font-size: 15px;
+    gap: 20px;
     text-transform: uppercase;
     list-style: none;
 }
 nav ul li a{
     color: #ffffff;
     transition: 2s ease-in-out;
-    padding: 10px 10px;
     margin-left: 5px;
-    border-radius: 20px;
     corner-shape:squircle;
 }
 nav ul li a:hover{
-    background-color:#e07b39;
-    color: #ffffff;
+    color: #ce03c0;
+    border-bottom: 3px solid #c208b6;
 }
 .action-btn{
     all: unset;
@@ -253,80 +259,65 @@ main{
     padding: 20px;
     height: 100vh;
 }
+/*footer.php*/
 footer{
-    background-color: #635d5d;
-    width: 100%;
-    margin: auto;
+    background-color: #000000;
     border-top: 2px solid #8f0886;
+    
+    grid-template-rows: 1fr 0.2fr;
+    justify-content: center;
+    color: #fff;
+    gap: 20px;
 }
-.section-container{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: #1e1e1e;
-    padding: 10px;
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 10px 10px 0px 10px;
+
 }
-.about-us{
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #ffffff;
-    gap: 10px;
+.brand-name{
+    color: #fff;
 }
-.about-us h3{
-    font-size: 20px;
-    color: #8f0886;
-}
-.about-us p{
-    color: #ffffff;
-}
-.location p{
-    color: #ffffff;
-    font-size: 16px;
-}
-.location p h3{
-    color: #8f0886;
-}
-.nav{
-    width: 50%;
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-}
-.nav h3{
-    font-size: 20px;
-    text-transform: uppercase;
+.brand-name span{
     color: #c208b6;
 }
-.nav a{
-    color: #ffffff;
-    font-size: 18px;
-}
-.socials{
-    width: 25%;
+footer .footer-col{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+footer .footer-brand{
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+}
+h4{
+    color: #ce03c0;
+    font-size: 20px;
+}
+footer ul{
+    list-style: none;
+}
+footer ul li a{
+    color: #ffffff;
+}
+footer ul li a:hover{
+    color: #ce03c0;
+}
+footer .follow{
+    border-top: 2px solid #8f0a86;
+    padding: 10px;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
 }
-.socials h3{
-    font-size: 20px;
-    color: #8f0886;
-}
-.link-social a{
-    border-radius: 10px;
-    corner-shape: squircle;
-    font-size: 25px;
-    padding: 5px;
-    box-shadow: inset 0 1px 1px 1px #ffffff;
+.follow a{
+    font-size: 30px;
     color: #ffffff;
 }
-.socials a:hover{
-    color:#fce8cd ;
+.follow a:hover{
+    color: #ce03c0;
 }
 .copyright{
     border-top: 2px solid #8f0886;
@@ -334,11 +325,20 @@ footer{
     width: 100%;
     padding: 10px;
     text-align: center;
+    width: 100%;
 }
 .copyright h4{
     font-size: 18px;
     color: #ffffff;
 }
+/*Bookings page*/
+.contact-layout{
+    color: #ffff
+}
+.booking-form{
+    width: ;
+}
+
 @media (max-width:768px) {
     nav {
         position: absolute;
@@ -381,14 +381,11 @@ footer{
     .menu.active{
         position: absolute;
         right: 10px;
-        display: flex;
     }
-    .section-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-
+    footer .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
 

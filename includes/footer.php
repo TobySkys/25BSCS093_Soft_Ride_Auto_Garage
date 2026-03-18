@@ -1,33 +1,45 @@
 
-    <footer>
-        <div class="section-container">
-        <section class="about-us">
-            <h3>About us</h3>
-            <p>We provide quality auto repair and genuine spare parts.</p>
-            <div class="location">
-                <h3>Location</h3>
-                <p>Entebbe,Uganda</p>
-                <p>Behind the Shine Motel</p>
-                <p>Open 24/7<br><h3>For more information:</h3>Dial +256 744 2341 785</p>
-            </div>
-        </section>
-        <section class="nav">
-            <h3>Quick links:</h3>
-            <a href="index.php">home</a>
-            <a href="services.php">services</a>
-            <a href="#">about us</a>
-            <a href="#">contact us</a>
-        </section>
-        <section class="socials">
-            <h3>Follow Us:</h3>
-        <div class="link-social">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-        </div>
-        </section>
-        </div>
-        <div class="copyright">
-            <h4><i class="fa-solid fa-copyright"></i>2026 Soft-Ride Auto.All rights reserved.</h4>
-        </div>
-    </footer>
+    <div class="container">
+  <div class="footer-brand">
+    <a class="brand-name" href="index.php">SOFT-RIDE-<span>AUTO</span></a>
+    <p>Your trusted neighborhood auto repair shop. <br> Quality work, honest prices, and a team that <br> treats you like family since 2024</p>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="about.php">About Us</a></li>
+      <li><a href="services.php">Services</a></li>
+      <li><a href="contact.php">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="services.php">Brake Repair</a></li>
+      <li><a href="services.php">Oil Change</a></li>
+      <li><a href="services.php">Engine Repair</a></li>
+      <li><a href="services.php">Transmission</a></li>
+      <li><a href="services.php">Hybrid Repair</a></li>
+      <li><a href="services.php">Tire Sales</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <ul>
+      <li><a href="#">123 Main Street</a></li>
+      <li><a href="#">Your City, ST 00000</a></li>
+      <li><a href="tel:(+256) 718826545">(+256) 7188 26545</a></li>
+      <li><a href="#">Mon–Fri: 8am–6pm</a></li>
+      <li><a href="#">After-hours drop-off</a></li>
+    </ul>
+  </div>
+</div>
+<div class="follow">
+    <h4>Follow us: </h4>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+</div>
+<div class="copyright">© 2026 Soft-Ride-Auto Auto. All Rights Reserved.</div>
+
