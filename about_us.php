@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/icons/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -36,6 +38,7 @@
             </ul>
         </nav>
     </header>
+    <main>
     <section class="about-strip">
   <div class="about-text reveal">
     <span class="section-tag">Who We Are</span>
@@ -60,6 +63,7 @@
     </div>
   </div>
 </section>
+</main>
 <footer>
     
     <div class="container">
@@ -71,9 +75,9 @@
     <h4>Quick Links</h4>
     <ul>
       <li><a href="index.php">Home</a></li>
-      <li><a href="about.php">About Us</a></li>
+      <li><a href="about_us.php">About Us</a></li>
       <li><a href="services.php">Services</a></li>
-      <li><a href="contact.php">Contact</a></li>
+      <li><a href="bookings.php">Contact</a></li>
     </ul>
   </div>
   <div class="footer-col">
@@ -90,10 +94,10 @@
   <div class="footer-col">
     <h4>Contact</h4>
     <ul>
-      <li><a href="#">123 Main Street</a></li>
-      <li><a href="#">Your City, ST 00000</a></li>
-      <li><a href="tel:(+256) 718826545">(+256) 7188 26545</a></li>
-      <li><a href="#">Mon–Fri: 8am–6pm</a></li>
+      <li><a href="#">123Gowers road</a></li>
+      <li><a href="#">Entebbe,Uganda</a></li>
+      <li><a href="tel:(+256) 718826545">(+256)718826545</a></li>
+      <li><a href="#">Mon-Fri: 8am-6pm</a></li>
       <li><a href="#">After-hours drop-off</a></li>
     </ul>
   </div>

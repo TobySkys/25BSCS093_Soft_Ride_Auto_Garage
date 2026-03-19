@@ -119,24 +119,24 @@ input::placeholder{
     padding: 10px 20px;
     border-radius: 10px;
     margin-left: 20px;
-    background-color:#c208b6;
+    background-color:#5806fc;
     border: none ;
     font-size: 18px;
-    color: #f0f0f4;
+    color: #ffffff;
     font-weight: 700;
     transition: 3s;
     cursor: pointer;
     corner-shape:squircle;
 }
 .signup-btn:hover{
-    background:linear-gradient(45deg,#680a62,#c208b6);
+    background:linear-gradient(45deg,#3d04ad,#5806fc);
 }
 .login-btn{
     width: 230px;
     padding: 10px 20px;
     border-radius: 10px;
     margin-left: 20px;
-    background-color:#c208b6;
+    background-color:#460eb5;
     border: none ;
     font-size: 18px;
     color: #f0f0f4;
@@ -146,7 +146,7 @@ input::placeholder{
     corner-shape:squircle;
 }
 .login-btn:hover{
-    background:linear-gradient(45deg,#680a62,#c208b6);
+    background:linear-gradient(45deg,#3d04ad,#5806fc);
     color: #fffff0;
 }
 a{
@@ -211,15 +211,15 @@ nav ul li a{
     corner-shape:squircle;
 }
 nav ul li a:hover{
-    color: #ce03c0;
-    border-bottom: 3px solid #c208b6;
+    color: #5806fc;
+    border-bottom: 3px solid #5806fc;
 }
 .action-btn{
     all: unset;
     width: 80px;
     height: 30px;
-    background-color: #c208b6;
-    border: 2px solid #ffffff;
+    background-color: #5806fc;
+    border: 2px solid #8b59f0;
     border-radius: 10px;
     conrer-shape:squircle;
     display: flex;
@@ -234,7 +234,7 @@ nav ul li a:hover{
     color: #ffffff;
 }
 .action-btn:hover{
-    background-color: #8f0a86;
+    background-color: #3d04ad;
 }
 .menu{
     display: none;
@@ -305,7 +305,7 @@ footer ul li a:hover{
     color: #ce03c0;
 }
 footer .follow{
-    border-top: 2px solid #8f0a86;
+    border-top: 2px solid #800677;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -317,7 +317,7 @@ footer .follow{
     color: #ffffff;
 }
 .follow a:hover{
-    color: #ce03c0;
+    color: #5806fc;
 }
 .copyright{
     border-top: 2px solid #8f0886;
@@ -332,13 +332,122 @@ footer .follow{
     color: #ffffff;
 }
 /*Bookings page*/
-.contact-layout{
-    color: #ffff
+.page-hero{
+    text-align: center;
 }
-.booking-form{
-    width: ;
+.page-hero p{
+    color: #ce03c0;
 }
-
+.section-tag{
+    color: #ce03c0;
+}
+.contact-container{
+    width: 80%;
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;   
+}
+.contact-container1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact-container1 .contact-detail{
+    background-color: #1a1730;
+    margin-top: 10px;
+    border: 1px solid #c208b6;
+    padding: 10px 50px;
+    width: 100%;
+    border-radius: 10px;
+    corner-shape:squircle;
+}
+.contact-detail-title{
+    font-size: 20px;
+    color: #c208b6;
+}
+.hours-table{
+    margin-top: 10px;
+    border: 1px solid #c208b6;
+    text-align: center;
+    border-radius: 10px;
+    corner-shape:squircle;
+    background-color: #1a1730;
+}
+.hours-row{
+    margin-top: 10px;
+    padding: 10px;
+}
+.hours-time{
+    color: #5806fc;
+}
+.contact-container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact-container2 form{
+    border: 1px solid #c208b6;
+    border-radius: 10px;
+    corner-shapae:squircle;
+    background-color: #1a1730;
+    padding: 20px;
+}
+.contact-container2 form .form-group{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 10px;
+}
+.form-group label{
+    font-size: 20px;
+    color: #ec09dd;
+}
+.form-group input{
+    padding: 10px;
+    color: white;
+    background: transparent;
+    border: 1px solid #ec09dd;
+    border-radius: 10px;
+    corner-shape: squircle;
+}
+.form-group input::placeholder{
+    color: #777777;
+}
+.contact-container2 form select{
+    padding: 10px;
+    background:transparent;
+    border: 1px solid #ce03c0;
+    color: #ffffff;
+}
+.contact-container2 form  option{
+    background-color: #0c0b0b;
+    color: #9932cc;
+}
+.contact-container2 textarea{
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ce03c0;
+    border-radius: 10px;
+    corner-shape:squircle;
+    padding: 5px;
+}
+.contact-container2 textarea::placeholder{
+    color: #888888;
+}
+.btn-purple{
+    background-color: #fe28f0;
+    padding: 5px;
+    font-size: 18px;
+    color: #ffffff;
+    border-radius: 10px;
+    corner-shape:squircle;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    transition: 3s ease-in-out;
+}
+.btn-purple:hover{
+    background-color: #680a62;
+}
 @media (max-width:768px) {
     nav {
         position: absolute;

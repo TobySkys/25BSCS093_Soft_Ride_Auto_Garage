@@ -41,7 +41,7 @@ if (isset($_GET['logout'])) {
                 <button class="action-btn"><a href="index.php?logout=true">LogOut</a></button>
                 <?php else: ?>
                 <!--Pre-Signup-->
-                <li><a href="#">about us</a></li>
+                <li><a href="about_us.php">about us</a></li>
                 <li><a href="services.php">services</a></li>
                 <li><a href="#">contact us</a></li>
                 <button class="action-btn"><a href="auth/Signup.php">Signup</a></button>
