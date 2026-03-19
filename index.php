@@ -90,10 +90,10 @@ if (isset($_GET['logout'])) {
   <div class="footer-col">
     <h4>Contact</h4>
     <ul>
-      <li><a href="#">123 Main Street</a></li>
-      <li><a href="#">Your City, ST 00000</a></li>
-      <li><a href="tel:(+256) 718826545">(+256) 7188 26545</a></li>
-      <li><a href="#">Mon–Fri: 8am–6pm</a></li>
+      <li><a href="#">123Gowers road</a></li>
+      <li><a href="#">Entebbe,Uganda</a></li>
+      <li><a href="tel:(+256) 718826545">(+256)718826545</a></li>
+      <li><a href="#">Mon-Fri: 8am-6pm</a></li>
       <li><a href="#">After-hours drop-off</a></li>
     </ul>
   </div>

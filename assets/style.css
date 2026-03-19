@@ -12,13 +12,12 @@ body{
 }
 main{
     flex: 1;
-}
-.home-page main{
-     background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)) ,url(images/pro-mechanic.jpg);
+}.home-page main{
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)) ,url(images/pro-mechanic.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
+    padding:  0 1000px 1000px 0;
 }
 .about-me{
     display: flex;
@@ -448,6 +447,188 @@ footer .follow{
 .btn-purple:hover{
     background-color: #680a62;
 }
+/*Services page*/
+.services-preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    background-color: #1c1c1e;
+    border: 2px solid #8f0886;
+    border-radius: 16px;
+    margin: 40px auto;
+    max-width: 100%;
+}
+.service-tag{
+    color: #ce03c0;
+    font-size: 20px;
+}
+h2{
+    color: #ffffff;
+    font-size: 50px;
+}
+.btn-outline{    
+    padding: 10px 20px;
+    border: 2px solid #c208b6;
+    border-radius: 10px;
+    color: #c208b6;
+    font-size: 18px;
+    transition: 3s ease-in-out;
+    corner-shape:squircle;
+}
+.services-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 20px;
+}
+.service-card{
+    background-color: #1a1730;
+    border: 1px solid #c208b6;
+    border-radius: 10px;
+    corner-shape:squircle;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ .service-card i{
+    font-size: 40px;
+}
+.service-name{
+    font-size: 30px;
+    color: #c208b6;
+    margin-top: 10px;
+}
+.service-desc{
+    color: #ffffff;
+    text-align: center;
+}
+/*Shop_parts*/
+.admin-panel{
+    
+}
+/*about_us.php*/
+.about-strip{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    background-color: #1c1c1e;
+    border: 2px solid #8f0886;
+    border-radius: 16px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+.about-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.about-text p{
+    color: #ffffff;
+}
+.stats{
+    display: flex;
+    gap: 40px;
+}
+.stat-num{
+    font-size: 30px;
+    color: #c208b6;
+}
+.stat-label{
+    color: #ffffff;
+}
+.about-visual{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: #ffffff;
+}
+.about-visual-icon{
+    width: 80px;
+    height: 80px;
+    background-color: #1a1730;
+    border: 2px solid #c208b6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-visual-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    background-color: #1a1730;
+    border: 2px solid #c208b6;
+    border-radius: 10px;
+    corner-shape:squircle;
+    padding: 20px;
+}
+.card-text{
+    font-size: 20px;
+    color: #c208b6;
+}
+.card-icon{
+    width: 50px;
+    height: 50px;
+    background-color: #1a1730;
+    border: 2px solid #c208b6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-sub{
+    color: #ffffff;
+}
+.team{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    background-color: #1c1c1e;
+    border: 2px solid #8f0886;
+    border-radius: 16px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+.team-sub{
+    color: #c208b6;
+    font-size: 20px;
+}
+.team-grid{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.team-card{
+    background-color: #1a1730;
+    border: 2px solid #c208b6;
+    border-radius: 10px;
+    corner-shape:squircle;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.team-name{
+    font-size: 20px;
+    color: #c208b6;
+}
+.team-role{
+    font-size: 16px;
+    color: #ffffff;
+}
+.team-bio{
+    color: #ffffff;
+    text-align: center;
+}
+
 @media (max-width:768px) {
     nav {
         position: absolute;

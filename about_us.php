@@ -40,26 +40,57 @@
     </header>
     <main>
     <section class="about-strip">
-  <div class="about-text reveal">
+  <div class="about-text">
     <span class="section-tag">Who We Are</span>
-    <h2>Unmatched Car Care Since 2004</h2>
-    <p>At Precision Auto, we work hard to be your one-stop shop for all automotive needs. We take pride in genuine car care and superior customer service for every person who walks through our doors.</p>
-    <p>Our ASE-certified technicians bring decades of experience across all makes and models, with transparency and honesty at every step.</p>
-    <a href="about.html" class="btn btn-purple" style="margin-top:32px; align-self:flex-start;">Learn More About Us</a>
+    <h2>Unmatched Car Care Since 2020</h2>
+    <p>At Soft Ride Auto, we work hard to be your one-stop shop for all automotive needs. We take pride in genuine car care and superior customer service for every person who walks through our doors.</p>
+    <p>Our OEM Certified technicians bring decades of experience across all makes and models, with transparency and honesty at every step.</p>
+    <a href="about_us.php" class="btn btn-purple" style="margin-top:32px; align-self:flex-start;">Learn More About Us</a>
     <div class="stats">
-      <div><div class="stat-num">20+</div><div class="stat-label">Years Experience</div></div>
-      <div><div class="stat-num">5K+</div><div class="stat-label">Happy Customers</div></div>
+      <div><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div>
+      <div><div class="stat-num">1K+</div><div class="stat-label">Happy Customers</div></div>
       <div><div class="stat-num">14</div><div class="stat-label">Services Offered</div></div>
     </div>
   </div>
   <div class="about-visual">
-    <div class="about-visual-icon">🔧</div>
+    <div class="about-visual-icon"><i class="fa-solid fa-wrench" style="font-size: 30px; color: #5806fc;"></i></div>
     <div class="about-visual-card">
-      <div class="card-icon">🏅</div>
+      <div class="card-icon"><i class="fa-solid fa-medal" style="font-size: 30px; color: #5806fc;"></i></div>
       <div>
-        <div class="card-text">ASE Certified Technicians</div>
+        <div class="card-text">OEM Certified Technicians</div>
         <div class="card-sub">All makes & models — domestic and foreign</div>
       </div>
+    </div>
+  </div>
+</section>
+<section class="team">
+  <span class="section-tag">The People Behind the Work</span>
+  <h2 class="reveal">Meet Our Team</h2>
+  <p class="team-sub">Our skilled technicians and friendly front-desk staff are here to make your experience as smooth as your ride.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <div class="team-name">Mike Draru</div>
+      <div class="team-role">Master Technician</div>
+      <div class="team-bio">20+ years of experience. Specializes in engine repair and diagnostics.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <div class="team-name">Katie Akello</div>
+      <div class="team-role">Service Manager</div>
+      <div class="team-bio">Your first point of contact — honest, knowledgeable, and always helpful.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <div class="team-name">David Chen</div>
+      <div class="team-role">Hybrid Specialist</div>
+      <div class="team-bio">Certified hybrid and EV technician with expertise in Toyota and Honda systems.</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar"></div>
+      <div class="team-name">Carlos Mukasa</div>
+      <div class="team-role">Transmission Expert</div>
+      <div class="team-bio">15 years focused on transmission rebuilds and drivetrain repairs.</div>
     </div>
   </div>
 </section>
