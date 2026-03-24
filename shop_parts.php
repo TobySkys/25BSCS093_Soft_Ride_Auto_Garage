@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require 'config/connect.php';
 
 $message = '';
@@ -12,16 +13,23 @@ if (isset($_POST['add_part']) && isset($_SESSION['is_admin']) && $_SESSION['is_a
     $quantity    = intval($_POST['quantity']  ?? 0);
     $description = trim($_POST['description'] ?? '');
 
-    if ($name && $category && $price > 0) {
-        $stmt = $pdo->prepare("INSERT INTO spare_parts (part_name, category, price, quantity, description) VALUES (?,?,?,?,?)");
-        try {
+    if ($name !==''  && $category !== ''  && $price > 0) {
+        try{
+            $stmt = $pdo->prepare("INSERT INTO spare_parts(part_name,category,price,quantity,description) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$name, $category, $price, $quantity, $description]);
-            $message = "<div class='msg success'><i class='fa-solid fa-circle-check'></i> Part \"" . htmlspecialchars($name) . "\" added successfully.</div>";
-        } catch (PDOException $e) {
-            $message = "<div class='msg error'><i class='fa-solid fa-circle-exclamation'></i> Error adding part. Please try again.</div>";
+
+            $message ='<div class="msg success">
+             <i class="fa-solid fa-circle-check"></i> Part "' . htmlspecialchars($name) .'" added successfully!
+            </div>';
+        }catch(PDOException $e){
+            $message ='<div class="msg error">
+             <i class="fa-solid fa-circle-exclamation"></i> Error adding part:' . htmlspecialchars($e->getMessage()) .'
+            </div>';
         }
     } else {
-        $message = "<div class='msg error'><i class='fa-solid fa-circle-exclamation'></i> Please fill in all required fields.</div>";
+        $message = '<div class="msg error">
+        <i class="fa-solid fa-circle-exclamation"></i> Please fill in all required fields(name, category, price > 0).
+        </div>';
     }
 }
 
@@ -32,12 +40,12 @@ $category = trim($_GET['category'] ?? '');
 $sql    = "SELECT * FROM spare_parts WHERE 1=1";
 $params = [];
 
-if ($search) {
+if ($search !== '') {
     $sql .= " AND (part_name LIKE ? OR description LIKE ?)";
     $params[] = "%$search%";
     $params[] = "%$search%";
 }
-if ($category && $category !== 'all') {
+if ($category !=='' && $category !== 'all') {
     $sql .= " AND category = ?";
     $params[] = $category;
 }
@@ -56,21 +64,6 @@ try {
     $cats = $pdo->query("SELECT DISTINCT category FROM spare_parts ORDER BY category")->fetchAll(PDO::FETCH_COLUMN);
 } catch (PDOException $e) {
     $cats = [];
-}
-
-// Demo parts when DB is empty
-if (empty($parts)) {
-    $parts = [
-        ['part_id'=>1,'part_name'=>'Front Brake Pads','category'=>'Brakes','price'=>85000,'quantity'=>12,'description'=>'High-performance ceramic brake pads for cars and SUVs.'],
-        ['part_id'=>2,'part_name'=>'Engine Oil Filter','category'=>'Engine','price'=>15000,'quantity'=>30,'description'=>'OEM-quality oil filter compatible with Toyota, Honda, and Nissan.'],
-        ['part_id'=>3,'part_name'=>'Timing Belt Kit','category'=>'Engine','price'=>125000,'quantity'=>5,'description'=>'Complete timing belt kit including tensioner and water pump.'],
-        ['part_id'=>4,'part_name'=>'Air Filter (Panel)','category'=>'Engine','price'=>22000,'quantity'=>18,'description'=>'High-flow panel air filter for improved engine performance.'],
-        ['part_id'=>5,'part_name'=>'Shock Absorber (Rear)','category'=>'Suspension','price'=>180000,'quantity'=>8,'description'=>'Heavy-duty rear shock absorber for saloons and SUVs.'],
-        ['part_id'=>6,'part_name'=>'Radiator Coolant 1L','category'=>'Cooling','price'=>18000,'quantity'=>25,'description'=>'Pre-mixed OAT coolant — safe for all modern aluminium engines.'],
-        ['part_id'=>7,'part_name'=>'Battery 12V 60Ah','category'=>'Electrical','price'=>220000,'quantity'=>3,'description'=>'Maintenance-free lead-acid battery, 12 months warranty.'],
-        ['part_id'=>8,'part_name'=>'Spark Plug Set (x4)','category'=>'Engine','price'=>48000,'quantity'=>20,'description'=>'Iridium tipped plugs for smooth idle and better fuel economy.'],
-    ];
-    $cats = ['Brakes','Cooling','Electrical','Engine','Suspension'];
 }
 
 $catIcons = [
@@ -102,7 +95,7 @@ include 'header.php';
 <!-- ── Admin Add Part ─── -->
 <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
 <div class="admin-panel">
-    <?= $message ?>
+    <?php echo $message; ?>
     <div class="admin-panel-card">
         <div class="admin-panel-title"><i class="fa-solid fa-circle-plus"></i> Add New Part</div>
         <form action="shop_parts.php" method="POST" style="grid-template-columns:1fr 1fr;">
@@ -127,7 +120,7 @@ include 'header.php';
                 <textarea name="description" rows="3" placeholder="Brief description of the part…"></textarea>
             </div>
             <div class="form-submit">
-                <button type="submit" name="add_part" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:#000;padding:11px 22px;border-radius:9px;border:none;cursor:pointer;">
+                <button type="submit" name="add_part" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--rust);color:#000;padding:11px 22px;border-radius:9px;border:none;cursor:pointer;">
                     <i class="fa-solid fa-plus"></i> Add Part
                 </button>
             </div>
@@ -135,7 +128,7 @@ include 'header.php';
     </div>
 </div>
 <?php else: ?>
-    <?= $message ?>
+    <?php echo $message; ?>
 <?php endif; ?>
 
 <!-- ── Shop Controls ─── -->
@@ -174,15 +167,23 @@ include 'header.php';
             <p>No parts found. Try adjusting your search or filter.</p>
         </div>
     <?php else: ?>
-        <?php foreach ($parts as $part):
-            $qty = $part['quantity'];
-            if ($qty <= 0)  { $stockClass = 'out-stock';  $stockLabel = 'Out of Stock'; }
-            elseif ($qty <= 5) { $stockClass = 'low-stock'; $stockLabel = "Only $qty left"; }
-            else               { $stockClass = 'in-stock';  $stockLabel = 'In Stock'; }
-
-            $cat = $part['category'] ?? '';
-            $icon = $catIcons[$cat] ?? 'fa-cog';
-            $price = number_format($part['price']);
+        <?php foreach ($parts as $part): ?>
+        <?php 
+          $qty =(int)($part['quantity'] ?? 0);
+          
+          if($qty == 0){
+            $stockClass ='out-stock';
+            $stockLabel ='Out of Stock';
+          }elseif($qty <=5){
+            $stockClass ='low-stock';
+            $stockLabel ="Only $qty left";
+          }else{
+            $stockClass ='in-stock';
+            $stockLabel ='In Stock';
+          }
+          $cat = $part['category'] ?? '';
+          $icon = $catIcons[$cat] ?? 'fa-cog';
+          $price = number_format($part['price'] ?? 0, 0);
         ?>
         <div class="part-card"
              data-name="<?= strtolower(htmlspecialchars($part['part_name'])) ?>"

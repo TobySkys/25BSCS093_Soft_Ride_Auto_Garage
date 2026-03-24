@@ -215,21 +215,21 @@ include 'header.php';
                 <div class="testimonial-stars">★★★★★</div>
                 <p class="testimonial-text">"The team ordered parts overnight and had my car ready by the next afternoon. The online booking system made the whole process seamless."</p>
                 <div class="testimonial-author">
-                    <div class="testimonial-avatar">AN</div>
+                    <div class="testimonial-avatar">AA</div>
                     <div>
-                        <div class="testimonial-name">Amina Nakato</div>
+                        <div class="testimonial-name">Amina Aketch</div>
                         <div class="testimonial-car">Honda CRV, 2020</div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Best garage in Entebbe. They serviced my taxi fleet with no fuss, great pricing, and everything was done on time. Highly recommended."</p>
+                <p class="testimonial-text">"Best garage in Entebbe. They serviced my taxi  with no fuss, great pricing, and everything was done on time. Highly recommended."</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">RM</div>
                     <div>
                         <div class="testimonial-name">Robert Mukasa</div>
-                        <div class="testimonial-car">Toyota Hiace Fleet</div>
+                        <div class="testimonial-car">Toyota Hiace 2022</div>
                     </div>
                 </div>
             </div>

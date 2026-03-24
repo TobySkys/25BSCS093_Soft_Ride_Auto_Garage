@@ -5,18 +5,18 @@ require 'config/connect.php';
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email    = trim($_POST['email']    ?? '');
+    $username  = trim($_POST['username']    ?? '');
     $password = $_POST['password']         ?? '';
 
     // Look up admin user (add is_admin column to users or use a separate admins table)
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? AND is_admin = 1");
-    $stmt->execute([$email]);
+    $stmt = $pdo->prepare("SELECT * FROM  admins  WHERE username = ? ");
+    $stmt->execute([$username]);
     $admin = $stmt->fetch();
 
     if ($admin && password_verify($password, $admin['password'])) {
         session_regenerate_id(true);
         $_SESSION['user_id']  = $admin['id'];
-        $_SESSION['username'] = $admin['username'];
+        $_SESSION['admin_username'] = $admin['username'];
         $_SESSION['is_admin'] = true;
         header("Location: admin_dashboard.php");
         exit();
@@ -51,12 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <?= $message ?>
 
-        <form action="admin_log.php" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+        <form action="admin_login.php" method="POST" style="display:flex;flex-direction:column;gap:14px;">
             <div class="form-group">
-                <label>Admin Email</label>
+                <label>Admin Username</label>
                 <div class="inputBox">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" name="email" placeholder="admin@softrideauto.com" required>
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="username" placeholder="example" required>
                 </div>
             </div>
             <div class="form-group">

@@ -3,12 +3,12 @@
 session_start();
 
 // ─── AUTH GUARD ───
-if (!isset($_SESSION['admin'])) {
-    header("Location: auth/admin_login.php");
+if (!isset($_SESSION['is_admin'])) {
+    header("Location:admin_login.php");
     exit();
 }
 
-$admin_name = $_SESSION['admin_username'] ?? 'Administrator';
+$admin_name = $_SESSION['username'] ?? 'Administrator';
 
 ?>
 <!DOCTYPE html>
@@ -34,43 +34,43 @@ $admin_name = $_SESSION['admin_username'] ?? 'Administrator';
   <nav class="sidebar-nav">
     <div class="nav-group-label">Overview</div>
     <a href="admin_dashboard.php" class="nav-item active">
-      <span class="value-icon"><i class="fa-solid fa-dashboard"></i></span> Dashboard
+      <span><i class="fa-solid fa-dashboard"></i></span> Dashboard
       <span class="badge"></span>
     </a>
 
     <div class="nav-group-label">Operations</div>
     <a href="admin_bookings.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-book"></i></span> Bookings
+      <span><i class="fa-solid fa-book"></i></span> Bookings
       <span class="badge"></span>
     </a>
     <a href="admin_customers.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-user"></i></span> Customers
+      <span><i class="fa-solid fa-user"></i></span> Customers
     </a>
     <a href="admin_vehicles.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-car"></i></span> Vehicles
+      <span><i class="fa-solid fa-car"></i></span> Vehicles
     </a>
     <a href="admin_technicians.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-wrench"></i></span> Technicians
+      <span><i class="fa-solid fa-wrench"></i></span> Technicians
     </a>
 
     <div class="nav-group-label">Inventory</div>
     <a href="admin_parts.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-gear"></i></span> Spare Parts
+      <span><i class="fa-solid fa-gear"></i></span> Spare Parts
       <span class="badge"></span>
     </a>
     <a href="admin_orders.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-box"></i></span> Orders
+      <span><i class="fa-solid fa-box"></i></span> Orders
     </a>
     <a href="admin_suppliers.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-truck"></i></span> Suppliers
+      <span><i class="fa-solid fa-truck"></i></span> Suppliers
     </a>
 
     <div class="nav-group-label">Finance</div>
     <a href="admin_invoices.php" class="nav-item">
-      <span class="value-icon"><i></i></span> Invoices
+      <span><i class="fa-solid fa-file-invoice"></i></span> Invoices
     </a>
     <a href="admin_reports.php" class="nav-item">
-      <span class="value-icon"><i class="fa-solid fa-graphs"></i></span> Reports
+      <span><i class="fa-solid fa-chart-bar"></i></span> Reports
     </a>
 
     <div class="nav-group-label">System</div>
@@ -209,7 +209,7 @@ $admin_name = $_SESSION['admin_username'] ?? 'Administrator';
             <a href="admin_customers.php?new=1" class="quick-action">
               <span class="qa-icon"><i class="fa-solid fa-user"></i></span> Add Customer
             </a>
-            <a href="admin_parts.php?new=1" class="quick-action">
+            <a href="shop_parts.php?new=1" class="quick-action">
               <span class="qa-icon"><i class="fa-solid fa-plus"></i></span> Add Part
             </a>
             <a href="admin_invoices.php?new=1" class="quick-action">
