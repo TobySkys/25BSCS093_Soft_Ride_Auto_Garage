@@ -22,7 +22,6 @@
                 <li><a href="services.php">Services</a></li>
                 <li><a href="shop_parts.php">Shop Parts</a></li>
                 <li><a href="bookings.php">Bookings</a></li>
-                <button class="action-btn outline"><a href="admin_login.php">Admin</a></button>
                 <button class="action-btn"><a href="index.php?logout=true">Log Out</a></button>
             <?php else: ?>
                 <li><a href="about_us.php">About Us</a></li>
