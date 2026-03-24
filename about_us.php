@@ -46,7 +46,7 @@
 <!-- STORY -->
 <section class="story">
   <div class="story-visual">
-    <img src=""alt="Our Garage Workshop" class="story-img">
+    <img src="assets/images/garage.avif" alt="Our Garage Workshop" class="story-img">
     <div class="story-badge">
       <strong>2</strong>
       <span>Years</span>
@@ -132,9 +132,9 @@
       </div>
     </div>
     <div class="team-card">
-      <img src=""alt="Ronald Kato" class="team-photo">
+      <img src="assets/images/Davis Ssekajja.jpeg" alt="Davis Ssekajja" class="team-photo">
       <div class="team-info">
-        <div class="team-name">Ronald Kato</div>
+        <div class="team-name">Davis Ssekajja</div>
         <div class="team-role">Parts &amp; Procurement</div>
       </div>
     </div>
