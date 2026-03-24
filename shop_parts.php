@@ -77,8 +77,6 @@ $catIcons = [
     'Filters'    => 'fa-filter',
 ];
 
-$pageTitle = 'Shop Spare Parts';
-$rootPath  = '';
 include 'header.php';
 ?>
 
