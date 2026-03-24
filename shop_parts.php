@@ -201,7 +201,7 @@ include 'header.php';
                 </div>
                 <?php if ($qty > 0): ?>
                 <a href="bookings.php?service=parts&part=<?= urlencode($part['part_name']) ?>"
-                   style="display:block;margin-top:14px;background:var(--accent);color:#000;text-align:center;padding:10px;border-radius:8px;font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:background .25s;">
+                   style="display:block;margin-top:14px;background:var(--rust);color:#000;text-align:center;padding:10px;border-radius:8px;font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:background .25s;">
                     <i class="fa-solid fa-cart-shopping"></i> Order Now
                 </a>
                 <?php else: ?>
