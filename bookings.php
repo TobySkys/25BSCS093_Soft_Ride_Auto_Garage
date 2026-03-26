@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+require 'config/connect.php';
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$conn = new mysqli("127.0.0.1", "root", "", "auto_garage");
+if($conn->connect_error){
+    die("Connection failed: " . $conn->connect_error);
+}
+
 $success = '';
 $error   = '';
 
@@ -21,14 +31,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Please enter a valid email address.';
     } else {
-        // TODO: save to DB via $pdo
-        // For now, just acknowledge receipt
+        $stmt = $conn->prepare(
+            "INSERT INTO bookings (first_name, last_name, phone, email, vehicle_year, make_model, service_name, booking_date, notes) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        );
+        $stmt->bind_param(
+            "sssssssss",
+            $firstName, $lastName, $phone, $email, $vehicleYear, $makeModel, $service, $date, $notes
+        );
+        if($stmt->execute()){
         $success = "Thank you, $firstName! Your appointment request has been received. We'll confirm within 1 business hour.";
+        }else{
+            $error = "Something went wrong.Please try again later.";
+        }
+        $stmt->close();
     }
 }
 
-$pageTitle = 'Book a Service';
-$rootPath  = '';
 include 'header.php';
 ?>
 
