@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS vehicles (
 CREATE TABLE IF NOT EXISTS services (
     service_id   INT AUTO_INCREMENT PRIMARY KEY,
     service_name VARCHAR(100),
-    price        DECIMAL(12,2)
+    price        DECIMAL(12,2),
+    service_description TEXT
 );
 
 -- ── Bookings ─────

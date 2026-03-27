@@ -11,9 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$email || !$password) {
         $message = "<div class='msg error'><i class='fa-solid fa-circle-exclamation'></i> Please enter your email and password.</div>";
     } else {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$email]);
-        $user = $stmt->fetch();
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn, $query);
+        $user = mysqli_fetch_assoc($result);
 
         if ($user && password_verify($password, $user['password'])) {
             session_regenerate_id(true);

@@ -1,7 +1,9 @@
 <?php
 session_start();
-$pageTitle = 'Services';
-$rootPath  = '';
+require_once 'config/connect.php';
+
+$query = "SELECT * FROM services";
+$result = mysqli_query($conn, $query);
 include 'header.php';
 ?>
 
@@ -27,66 +29,13 @@ include 'header.php';
     </div>
 
     <div class="services-grid">
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-circle-dot"></i></span>
-            <div class="service-name">Brake Repair</div>
-            <div class="service-desc">Full brake system inspection and repair. Pads, rotors, calipers, brake fluid flush, and handbrake adjustment.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-gear"></i></span>
-            <div class="service-name">Transmission</div>
-            <div class="service-desc">Automatic and manual transmission services — fluid change, rebuild, and replacement for all major brands.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-wrench"></i></span>
-            <div class="service-name">Engine Repair</div>
-            <div class="service-desc">Head gaskets, timing belts, valve adjustments, and complete engine overhauls.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-oil-can"></i></span>
-            <div class="service-name">Oil Change</div>
-            <div class="service-desc">Conventional, synthetic &amp; high-mileage oil. Includes filter swap and multi-point inspection.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-snowflake"></i></span>
-            <div class="service-name">A/C Repair</div>
-            <div class="service-desc">Full air conditioning diagnosis, gas recharge, compressor repair, and system flush.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-battery-half"></i></span>
-            <div class="service-name">Hybrid Repair</div>
-            <div class="service-desc">High-voltage battery testing, inverter service, and hybrid system diagnostics for Toyota, Honda, and Ford.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-ruler"></i></span>
-            <div class="service-name">Wheel Alignment</div>
-            <div class="service-desc">Computerised 4-wheel alignment to correct tyre wear, improve handling, and extend tyre life.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <div class="service-name">Check Engine</div>
-            <div class="service-desc">OBD-II diagnostic scanning to identify the real root cause — not just clear the warning light.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-circle-dot"></i></span>
-            <div class="service-name">Tire Services</div>
-            <div class="service-desc">Tire mounting, balancing, rotation, and puncture repair. We stock a wide range of tire brands.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-bolt"></i></span>
-            <div class="service-name">Electrical Repair</div>
-            <div class="service-desc">Wiring faults, battery replacement, alternator, starter motor, and lighting systems.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-arrow-up-from-ground-water"></i></span>
-            <div class="service-name">Suspension Repair</div>
-            <div class="service-desc">Shock absorbers, struts, ball joints, bushings, and full suspension overhaul.</div>
-        </a>
-        <a class="service-card" href="bookings.php">
-            <span class="service-icon"><i class="fa-solid fa-car"></i></span>
-            <div class="service-name">General Maintenance</div>
-            <div class="service-desc">Comprehensive maintenance packages — spark plugs, filters, belts, and full vehicle health check.</div>
-        </a>
+        <?php foreach ($result as $row): ?>
+            <a class="service-card" href="bookings.php">
+                <span class="service-icon"><i class="fa-solid fa-circle-dot"></i></span>
+                <div class="service-name"><?php echo $row['service_name']; ?></div>
+                <div class="service-desc"><?php echo $row['service_description']; ?></div>
+            </a>
+        <?php endforeach; ?>
     </div>
 
     <!-- Pricing note -->

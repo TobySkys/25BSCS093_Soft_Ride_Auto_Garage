@@ -39,7 +39,7 @@ $admin_name = $_SESSION['username'] ?? 'Administrator';
     </a>
 
     <div class="nav-group-label">Operations</div>
-    <a href="admin_bookings.php" class="nav-item">
+    <a href="bookings" class="nav-item">
       <span><i class="fa-solid fa-book"></i></span> Bookings
       <span class="badge"></span>
     </a>

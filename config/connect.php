@@ -5,12 +5,7 @@ $dbname   = 'auto_garage';
 $username = 'root';
 $password = '';
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE,            PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,   false);
-} catch (PDOException $e) {
-    // In production, log this and show a friendly error
-    die("Database connection failed. Please try again later.");
+$conn = mysqli_connect($host, $username, $password, $dbname);
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
 }
