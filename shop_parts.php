@@ -36,17 +36,13 @@ $search   = trim($_GET['search']   ?? '');
 $category = trim($_GET['category'] ?? '');
 $parts    =trim($_GET['parts'] ?? '');
 if(!$parts){
-    $parts = [];
-    $query = "SELECT * FROM spare_parts";
-    
+    $query = "SELECT * FROM spare_parts WHERE 1=1";
     if ($search !== '') {
         $query .= " AND part_name LIKE '%" . mysqli_real_escape_string($conn, $search) . "%'";
     }
     if ($category !== '') {
         $query .= " AND category = '" . mysqli_real_escape_string($conn, $category) . "'";
     }
-    
-    $result = mysqli_query($conn, $query);
     $result= mysqli_query($conn, $query);
     $parts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -131,11 +127,16 @@ include 'header.php';
                 </div>
                 <div class="category-filters">
                     <a href="shop_parts.php" class="filter-btn <?= !$category ? 'active' : '' ?>" data-cat="all">All</a>
-                    <?php foreach ($result as $row): ?>
-                        <a href="shop_parts.php?category=<?= urlencode($row['category']) ?><?= $search ? '&search='.urlencode($search) : '' ?>"
-                           class="filter-btn <?= $category === $row['category'] ? 'active' : '' ?>"
-                           data-cat="<?= strtolower(htmlspecialchars($row['category'])) ?>">
-                            <?= htmlspecialchars($row['category']) ?>
+                    <?php 
+                        $categories = array_column($parts, 'category');
+                        $uniqueCategories = array_unique($categories);
+                    foreach ($uniqueCategories as $cat) :
+            
+                     ?>
+                        <a href="shop_parts.php?category=<?= urlencode($cat) ?><?= $search ? '&search='.urlencode($search) : '' ?>"
+                           class="filter-btn <?= $category === $cat ? 'active' : '' ?>"
+                           data-cat="<?= strtolower(htmlspecialchars($cat)) ?>">
+                            <?= htmlspecialchars($cat) ?>
                         </a>
                     <?php endforeach; ?>
                 </div>
