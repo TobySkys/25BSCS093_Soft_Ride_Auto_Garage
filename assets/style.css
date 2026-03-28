@@ -156,7 +156,7 @@ header {
   color: var(--white);
   white-space: nowrap;
 }
-.brand-wordmark span { color: var(--accent); }
+.brand-wordmark span { color: var(--rust); }
 
 nav#navbar { margin-left: auto; }
 
@@ -1426,7 +1426,7 @@ footer .container {
   margin: 0 auto;
   padding: 18px 0;
   font-size: 12px;
-  color: #3d4756;
+  color: #465469;
   text-align: center;
 }
 

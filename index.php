@@ -9,6 +9,9 @@ if (isset($_GET['logout'])) {
     exit();
 }
 
+$query ="SELECT * FROM services";
+$result =mysqli_query($conn,$query);
+
 include 'header.php';
 ?>
 
@@ -95,39 +98,16 @@ include 'header.php';
             <span class="section-tag">What We Do</span>
             <h2>Our Services</h2>
         </div>
-        <a href="services.php" class="btn-outline">View All Services →</a>
+        <a href="services.php" class="btn-outline">View Our Services →</a>
     </div>
     <div class="services-grid">
+        <?php foreach($result as $row): ?>
         <a class="service-card" href="services.php">
-            <span class="service-icon"><i class="fa-solid fa-circle-dot"></i></span>
-            <div class="service-name">Brake Repair</div>
-            <div class="service-desc">Pads, rotors, calipers — full brake system service for your safety.</div>
+            <span class="service-icon"><i class="fa-solid fa-toolbox"></i></span>
+            <div class="service-name"><?php echo $row['service_name']; ?></div>
+            <div class="service-desc"><?php echo $row['service_description']; ?></div>
         </a>
-        <a class="service-card" href="services.php">
-            <span class="service-icon"><i class="fa-solid fa-gear"></i></span>
-            <div class="service-name">Transmission</div>
-            <div class="service-desc">Auto &amp; manual transmission rebuild and replacement specialists.</div>
-        </a>
-        <a class="service-card" href="services.php">
-            <span class="service-icon"><i class="fa-solid fa-wrench"></i></span>
-            <div class="service-name">Engine Repair</div>
-            <div class="service-desc">From gaskets to full rebuilds — expert engine work done right.</div>
-        </a>
-        <a class="service-card" href="services.php">
-            <span class="service-icon"><i class="fa-solid fa-oil-can"></i></span>
-            <div class="service-name">Oil Change</div>
-            <div class="service-desc">Conventional, synthetic &amp; high-mileage options with inspection.</div>
-        </a>
-        <a class="service-card" href="services.php">
-            <span class="service-icon"><i class="fa-solid fa-snowflake"></i></span>
-            <div class="service-name">A/C Repair</div>
-            <div class="service-desc">Full air conditioning diagnosis, recharge, and repair services.</div>
-        </a>
-        <a class="service-card" href="services.php">
-            <span class="service-icon"><i class="fa-solid fa-battery-half"></i></span>
-            <div class="service-name">Hybrid Repair</div>
-            <div class="service-desc">Battery and system repair for Toyota, Honda, Ford hybrids.</div>
-        </a>
+        <?php endforeach; ?>
     </div>
 </section>
 

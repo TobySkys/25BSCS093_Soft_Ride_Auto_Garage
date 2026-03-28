@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password']         ?? '';
 
     // Look up admin user (add is_admin column to users or use a separate admins table)
-    $stmt = $pdo->prepare("SELECT * FROM  admins  WHERE username = ? ");
-    $stmt->execute([$username]);
-    $admin = $stmt->fetch();
+    $query= "SELECT * FROM admins" . " WHERE username = '" . mysqli_real_escape_string($conn, $username) . "' LIMIT 1";
+    $result = mysqli_query($conn, $query);
+    $admin = mysqli_fetch_assoc($result);
 
     if ($admin && password_verify($password, $admin['password'])) {
         session_regenerate_id(true);

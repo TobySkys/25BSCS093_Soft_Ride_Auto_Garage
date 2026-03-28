@@ -19,17 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "<div class='msg error'><i class='fa-solid fa-circle-exclamation'></i> Passwords do not match.</div>";
     } else {
         $hashed = password_hash($password, PASSWORD_DEFAULT);
-        $sql    = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
-        $stmt   = $pdo->prepare($sql);
-        try {
-            $stmt->execute([':username' => $username, ':email' => $email, ':password' => $hashed]);
-            $message = "<div class='msg success'><i class='fa-solid fa-circle-check'></i> Account created! <a href='login.php'>Sign in here →</a></div>";
-        } catch (PDOException $e) {
-            $message = "<div class='msg error'><i class='fa-solid fa-circle-exclamation'></i> That email address is already registered. <a href='login.php'>Log in instead?</a></div>";
-        }
+        $sql    = "INSERT INTO users (username, email, password) VALUES (:username, :emai:password";
+        $message ="<div class='msg' style='color:red;'><i class='fa-solid fa-circle-info'></i>Account already created.</div>";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -23,7 +23,7 @@ include 'header.php';
             <span class="section-tag">Full Service Menu</span>
             <h2>Everything We Offer</h2>
         </div>
-        <a href="bookings.php" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:#000;padding:11px 22px;border-radius:9px;border:none;cursor:pointer;">
+        <a href="bookings.php" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--rust);color:#000;padding:11px 22px;border-radius:9px;border:none;cursor:pointer;">
             <i class="fa-solid fa-calendar-plus"></i> Book a Service
         </a>
     </div>
@@ -31,7 +31,7 @@ include 'header.php';
     <div class="services-grid">
         <?php foreach ($result as $row): ?>
             <a class="service-card" href="bookings.php">
-                <span class="service-icon"><i class="fa-solid fa-circle-dot"></i></span>
+                <span class="service-icon"><i class="fa-solid fa-toolbox"></i></span>
                 <div class="service-name"><?php echo $row['service_name']; ?></div>
                 <div class="service-desc"><?php echo $row['service_description']; ?></div>
             </a>

@@ -14,57 +14,44 @@ if (isset($_POST['add_part']) && isset($_SESSION['is_admin']) && $_SESSION['is_a
     $description = trim($_POST['description'] ?? '');
 
     if ($name !==''  && $category !== ''  && $price > 0) {
-        try{
-            $stmt = $pdo->prepare("INSERT INTO spare_parts(part_name,category,price,quantity,description) VALUES (?, ?, ?, ?, ?)");
-            $stmt->execute([$name, $category, $price, $quantity, $description]);
-
-            $message ='<div class="msg success">
-             <i class="fa-solid fa-circle-check"></i> Part "' . htmlspecialchars($name) .'" added successfully!
+        $query = "INSERT INTO spare_parts (part_name, category, price, quantity, description) VALUES (?, ?, ?, ?, ?)";
+        $result = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($result, "ssdiss", $name, $category, $price, $quantity, $description);
+        mysqli_stmt_execute($result);}
+        if (mysqli_stmt_affected_rows($result) > 0) {
+            $message = '<div class="msg success">
+            <i class="fa-solid fa-circle-check"></i> Part added successfully.
             </div>';
-        }catch(PDOException $e){
-            $message ='<div class="msg error">
-             <i class="fa-solid fa-circle-exclamation"></i> Error adding part:' . htmlspecialchars($e->getMessage()) .'
-            </div>';
-        }
-    } else {
+    }else {
         $message = '<div class="msg error">
         <i class="fa-solid fa-circle-exclamation"></i> Please fill in all required fields(name, category, price > 0).
         </div>';
     }
+
 }
 
+    
 // Fetch parts
 $search   = trim($_GET['search']   ?? '');
 $category = trim($_GET['category'] ?? '');
-
-$sql    = "SELECT * FROM spare_parts WHERE 1=1";
-$params = [];
-
-if ($search !== '') {
-    $sql .= " AND (part_name LIKE ? OR description LIKE ?)";
-    $params[] = "%$search%";
-    $params[] = "%$search%";
-}
-if ($category !=='' && $category !== 'all') {
-    $sql .= " AND category = ?";
-    $params[] = $category;
-}
-$sql .= " ORDER BY part_name ASC";
-
-try {
-    $stmt  = $pdo->prepare($sql);
-    $stmt->execute($params);
-    $parts = $stmt->fetchAll();
-} catch (PDOException $e) {
+$parts    =trim($_GET['parts'] ?? '');
+if(!$parts){
     $parts = [];
-}
+    $query = "SELECT * FROM spare_parts";
+    
+    if ($search !== '') {
+        $query .= " AND part_name LIKE '%" . mysqli_real_escape_string($conn, $search) . "%'";
+    }
+    if ($category !== '') {
+        $query .= " AND category = '" . mysqli_real_escape_string($conn, $category) . "'";
+    }
+    
+    $result = mysqli_query($conn, $query);
+    $result= mysqli_query($conn, $query);
+    $parts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// Fetch distinct categories
-try {
-    $cats = $pdo->query("SELECT DISTINCT category FROM spare_parts ORDER BY category")->fetchAll(PDO::FETCH_COLUMN);
-} catch (PDOException $e) {
-    $cats = [];
-}
+}   
+
 
 $catIcons = [
     'Brakes'     => 'fa-circle-dot',
@@ -144,11 +131,11 @@ include 'header.php';
                 </div>
                 <div class="category-filters">
                     <a href="shop_parts.php" class="filter-btn <?= !$category ? 'active' : '' ?>" data-cat="all">All</a>
-                    <?php foreach ($cats as $cat): ?>
-                        <a href="shop_parts.php?category=<?= urlencode($cat) ?><?= $search ? '&search='.urlencode($search) : '' ?>"
-                           class="filter-btn <?= $category === $cat ? 'active' : '' ?>"
-                           data-cat="<?= strtolower(htmlspecialchars($cat)) ?>">
-                            <?= htmlspecialchars($cat) ?>
+                    <?php foreach ($result as $row): ?>
+                        <a href="shop_parts.php?category=<?= urlencode($row['category']) ?><?= $search ? '&search='.urlencode($search) : '' ?>"
+                           class="filter-btn <?= $category === $row['category'] ? 'active' : '' ?>"
+                           data-cat="<?= strtolower(htmlspecialchars($row['category'])) ?>">
+                            <?= htmlspecialchars($row['category']) ?>
                         </a>
                     <?php endforeach; ?>
                 </div>
